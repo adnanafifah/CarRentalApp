@@ -1,0 +1,44 @@
+page-profile {
+    .header-container {
+        height: 40vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .blur-overlay {
+        position: absolute;
+        background-size: cover !important;
+        background-position: center center !important;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        filter: blur(4px);
+        transform: scale(1.05);
+    }
+    .header-content {
+        z-index: 1;
+    }
+    .header-details {
+        background: transparent;
+        color: rgba(255, 255, 255, 0.76);
+        font-size: 1.2rem;
+        padding: 5px 0;
+    }
+    .avatar {
+        width: 13em;
+        height: 13em;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+    }
+    .scroll-content {
+        padding-top: 0px !important;
+    }
+    .header-buttons {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+}

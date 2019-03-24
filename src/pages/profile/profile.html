@@ -1,0 +1,52 @@
+<ion-content fullscreen="true">
+	<div class="header-container">
+		<div class="blur-overlay" [style.background]="profileImgBg"></div>
+		<div class="header-content" text-center>
+			<img [src]="profileImg" class="avatar">
+			<h4 text-center ion-text color="light">{{userData?.username}}</h4>
+			<button ion-button color="lightblue" small>
+				{{userData?.usertype}} User
+			</button>
+		</div>
+		<div class="header-buttons">
+			<button ion-button icon-only clear (click)="navigateBack()">
+				<ion-icon name="arrow-back" color="light"></ion-icon>
+			</button>
+		</div>
+	</div>
+
+	<div class="body-container">
+		<ion-list>
+			<ion-item-divider>
+				<span ion-text color="lightblue" class="list-header">USER INFORMATION</span>
+			</ion-item-divider>
+
+			<ion-item>
+				<h5>Full Name</h5>
+				<p>{{userData?.username}}</p>
+				<i class="fa fa-user" item-end ion-text color="secondary"></i>
+			</ion-item>
+			<ion-item>
+				<h5>IC No</h5>
+				<p>{{userData?.icno}}</p>
+				<i class="fa fa-id-card" item-end ion-text color="secondary"></i>
+			</ion-item>
+			<ion-item>
+				<h5>Email</h5>
+				<p>{{userData?.email}}</p>
+				<i class="fa fa-envelope" item-end ion-text color="secondary"></i>
+			</ion-item>
+			<ion-item>
+				<h5> Phone</h5>
+				<p>{{userData?.phoneno}}</p>
+				<i class="fa fa-phone" item-end ion-text color="secondary"></i>
+			</ion-item>
+
+		</ion-list>
+
+	</div>
+</ion-content>
+
+<ion-footer>
+	<button ion-button full color="danger" (click)="signOut()" no-margin>Logout</button>
+</ion-footer>

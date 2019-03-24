@@ -1,0 +1,27 @@
+page-vehicle-detail {
+    .input-wrapper>ion-label {
+        margin: 0 !important;
+    }
+    .vehicle-price-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: color($colors, secondary);
+        padding: 0 16px;
+    }
+
+    .vehicle-price-container > p {
+        font-size: 1.3em;
+        font-weight: bolder;
+        color: white;
+    }
+
+    .content {
+        background: rgba(221, 221, 221, 0.4) !important;
+    }
+
+    .vehicle-header-container {
+        background: white;
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+    }
+}

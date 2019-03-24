@@ -1,0 +1,28 @@
+page-home {
+    .car-details {
+        font-size: 0.9em;
+        color: color($colors, primary);
+    }
+    .item {
+        min-height: 3rem !important;
+        max-height: 3rem !important;
+    }
+    .vehicle-header {
+        font-size: 1.2em;
+        font-weight: bolder;
+    }
+    .vehicle-price {
+        font-size: 0.6em;
+        background: green;
+        padding: 0.5em;
+        color: white;
+        border-radius: 5px;
+    }
+    .vehicle-icon-container{
+        display: flex;
+        justify-content: space-between;
+    }
+    ion-content {
+        background: #e0e0e0e9 !important;
+    }
+}

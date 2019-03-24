@@ -1,0 +1,120 @@
+<ion-header>
+
+	<ion-navbar color="primary">
+		<ion-title>{{booking?.bookingno}}</ion-title>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	<div *ngIf="booking">
+		<div text-center class="vehicle-header-container" padding>
+			<img [src]="booking.vehicle_info.image" width="80%" />
+			<div>
+				<ion-note>{{booking.vehicle_info.category}}</ion-note>
+				<h5 class="vehicle-header">{{booking.vehicle_info.model}}</h5>
+			</div>
+		</div>
+
+		<ion-card>
+			<ion-card-content>
+				<div class="booking-header" padding color="primary">
+					<h2>Your Booking is {{booking.booking_status}}</h2>
+				</div>
+			</ion-card-content>
+		</ion-card>
+
+		<ion-card>
+			<ion-card-header>
+				<span ion-text color="lightblue" class="list-header">BOOKING INFORMATION</span>
+			</ion-card-header>
+			<ion-card-content>
+				<ion-list>
+					<ion-item>
+						<ion-label>
+							Booking No
+						</ion-label>
+						<div item-content style="color: grey">
+							{{booking.bookingno}}
+						</div>
+					</ion-item>
+					<ion-item>
+						<ion-label>
+							Destination
+						</ion-label>
+						<div item-content style="color: grey">
+							{{booking.destination}}
+						</div>
+					</ion-item>
+					<ion-item>
+						<ion-label>
+							Departure Date
+						</ion-label>
+						<div item-content style="color: grey">
+							{{booking.depart_date.toDate() | date:'dd/MM/yyyy'}}
+						</div>
+					</ion-item>
+					<ion-item>
+						<ion-label>
+							Return Date
+						</ion-label>
+						<div item-content style="color: grey">
+							{{booking.return_date.toDate() | date:'dd/MM/yyyy'}}
+						</div>
+					</ion-item>
+					<ion-item>
+						<ion-label>
+							Purpose
+						</ion-label>
+						<div item-content style="color: grey">
+							{{booking.purpose}}
+						</div>
+					</ion-item>
+				</ion-list>
+			</ion-card-content>
+		</ion-card>
+
+		<ion-card>
+			<ion-card-header>
+				<span ion-text color="lightblue" class="list-header">VEHICLE SPECIFICATION</span>
+			</ion-card-header>
+			<ion-card-content>
+				<ion-list>
+					<ion-item>
+						<ion-label>
+							Model
+						</ion-label>
+						<div item-content style="color: grey">
+							{{booking.vehicle_info.model}}
+						</div>
+					</ion-item>
+					<ion-item>
+						<ion-label>
+							Registration No
+						</ion-label>
+						<div item-content style="color: grey">
+							{{booking.vehicle_info.regno}}
+						</div>
+					</ion-item>
+					<ion-item>
+						<ion-label>
+							Chassis No
+						</ion-label>
+						<div item-content style="color: grey">
+							{{booking.vehicle_info.chassisno}}
+						</div>
+					</ion-item>
+					<ion-item>
+						<ion-label>
+							Category
+						</ion-label>
+						<div item-content style="color: grey">
+							{{booking.vehicle_info.category}}
+						</div>
+					</ion-item>
+				</ion-list>
+			</ion-card-content>
+		</ion-card>
+	</div>
+</ion-content>

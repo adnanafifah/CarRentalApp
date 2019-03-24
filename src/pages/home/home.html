@@ -1,0 +1,66 @@
+<ion-header>
+	<ion-navbar no-border no-shadow>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content>
+	<ion-card *ngFor="let vehicle of vehicleList$ | async" (click)="navigateToDetail(vehicle)">
+		<ion-card-content>
+			<ion-grid>
+				<ion-row>
+					<ion-col col-8>
+						<div>
+							<ion-note>{{vehicle.category}}</ion-note>
+							<h5 class="vehicle-header">{{vehicle.model}}</h5>
+						</div>
+					</ion-col>
+					<ion-col col-4>
+						<button ion-button outline block color="success">
+							RM {{vehicle.price}}
+						</button>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-6>
+						<ion-grid>
+							<ion-row>
+								<ion-col col-2 no-padding>
+									<i class="fa fa-user" ion-text color="lightblue"></i>
+								</ion-col>
+								<ion-col col-10 no-padding>
+									<span ion-text color="lightblue">{{vehicle.passengers}} Passengers</span>
+								</ion-col>
+								<ion-col col-2 no-padding>
+									<i class="fa fa-briefcase" ion-text color="lightblue"></i>
+								</ion-col>
+								<ion-col col-10 no-padding>
+									<span ion-text color="lightblue">{{vehicle.bags}} Bags</span>
+								</ion-col>
+								<ion-col col-2 no-padding>
+									<i class="fa fa-snowflake-o" ion-text color="lightblue"></i>
+								</ion-col>
+								<ion-col col-10 no-padding>
+									<span *ngIf="vehicle.aircondition == 'true';else other" ion-text color="lightblue">Air-Condition</span>
+									<ng-template #other>
+										<span ion-text color="lightblue"> Air-Conditioning </span>
+									</ng-template>
+								</ion-col>
+								<ion-col col-2 no-padding>
+									<i class="fa fa-car" ion-text color="lightblue"></i>
+								</ion-col>
+								<ion-col col-10 no-padding>
+									<span ion-text color="lightblue">{{vehicle.cartype}}</span>
+								</ion-col>
+							</ion-row>
+						</ion-grid>
+					</ion-col>
+					<ion-col col-6>
+						<img [src]="vehicle.image" />
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+
+		</ion-card-content>
+	</ion-card>
+</ion-content>

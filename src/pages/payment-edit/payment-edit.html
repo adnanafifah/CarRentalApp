@@ -1,0 +1,92 @@
+<ion-header>
+	<ion-navbar color="primary">
+		<ion-title>{{payment?.paymentno}}</ion-title>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content>
+	<form [formGroup]="payForm">
+		<ion-list>
+			<!-- Payment Information -->
+			<ion-list-header color="lightblue">
+				PAYMENT INFORMATION
+			</ion-list-header>
+			<ion-item>
+				<ion-label stacked>Payment No</ion-label>
+				<ion-input type="text" formControlName="paymentno"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label stacked>Booking No</ion-label>
+				<ion-input type="text" formControlName="bookingno"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label stacked>Payment Status</ion-label>
+				<ion-input type="text" formControlName="payment_status"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label stacked>Payment Date
+					<span ion-text color="danger">*</span>
+				</ion-label>
+				<ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MMMM YYYY" formControlName="payment_datetime"></ion-datetime>
+			</ion-item>
+			<ion-item *ngIf="payment_datetime.invalid && (payment_datetime.dirty || submitted)" no-lines>
+				<div class="input-error">
+					{{getErrorMsg('payment_datetime')}}
+				</div>
+			</ion-item>
+
+			<ion-item>
+				<ion-label stacked>Payment Type
+					<span ion-text color="danger">*</span>
+				</ion-label>
+				<ion-select formControlName="payment_type" interface="popover">
+					<ion-option *ngFor="let paytype of payTypeOptions" [value]="paytype">{{paytype}}</ion-option>
+				</ion-select>
+			</ion-item>
+			<ion-item *ngIf="payment_type.invalid && (payment_type.dirty || submitted)" no-lines>
+				<div class="input-error">
+					{{getErrorMsg('payment_type')}}
+				</div>
+			</ion-item>
+
+			<ion-item>
+				<ion-label stacked>Bank
+					<span ion-text color="danger">*</span>
+				</ion-label>
+				<ion-select formControlName="bank" interface="popover">
+					<ion-option *ngFor="let bank of bankOptions" [value]="bank">{{bank}}</ion-option>
+				</ion-select>
+			</ion-item>
+			<ion-item *ngIf="bank.invalid && (bank.dirty || submitted)" no-lines>
+				<div class="input-error">
+					{{getErrorMsg('bank')}}
+				</div>
+			</ion-item>
+
+			<ion-item>
+				<ion-label stacked>Payment Amount
+					<span ion-text color="danger">*</span>
+				</ion-label>
+				<ion-input type="number" formControlName="payment_amount"></ion-input>
+			</ion-item>
+			<ion-item *ngIf="payment_amount.invalid && (payment_amount.dirty || submitted)" no-lines>
+				<div class="input-error">
+					{{getErrorMsg('payment_amount')}}
+				</div>
+			</ion-item>
+
+			<!-- Payment Proof Picture -->
+			<ion-list-header color="lightblue">
+				PAYMENT PROOF UPLOAD
+			</ion-list-header>
+			<ion-item detail-none>
+				<img [src]="payProofImage" (click)="uploadImage()">
+			</ion-item>
+		</ion-list>
+
+
+		<button ion-button full color="secondary" (click)="submitPayment()" no-margin *ngIf="payment?.payment_status === 'Open'">Submit</button>
+	</form>
+</ion-content>

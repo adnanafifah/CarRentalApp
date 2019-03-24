@@ -1,0 +1,28 @@
+<!-- <ion-tabs color="primary">
+    <ion-tab [root]="homeRoot" tabTitle="Home" tabIcon="home"></ion-tab>
+    <ion-tab [root]="bookingsRoot" tabTitle="Bookings" tabIcon="car"></ion-tab>
+    <ion-tab [root]="profileRoot" tabTitle="Profile" tabIcon="person"></ion-tab>
+</ion-tabs> -->
+
+<ion-header>
+	<ion-navbar color="primary">
+		<ion-item no-lines style="background:linear-gradient(200deg,#45cafc,#303f9f)" color="primary">
+			<ion-avatar item-start (click)="navigateToProfile()">
+				<img [src]="profileImg">
+			</ion-avatar>
+			<p ion-text color="light" (click)="navigateToProfile()">
+				{{userData?.username}}
+			</p>
+			<ion-icon name="search" item-end *ngIf="currentTab == 0" (click)="openVehicleSearch()"></ion-icon>
+		</ion-item>
+	</ion-navbar>
+</ion-header>
+
+
+
+<super-tabs [tabsPlacement]="'bottom'" [toolbarBackground]="'primary'" [indicatorColor]="'secondary'" [toolbarColor]="'light'"
+ [badgeColor]="'danger'" (tabSelect)="onTabChange($event)">
+	<super-tab [root]="homeRoot" [icon]="'car'"></super-tab>
+	<super-tab [root]="bookingsRoot" [icon]="'bookmarks'" [badge]="bookingBadge"></super-tab>
+	<super-tab [root]="paymentsRoot" [icon]="'cash'" [badge]="paymentBadge"></super-tab>
+</super-tabs>

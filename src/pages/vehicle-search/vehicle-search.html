@@ -1,0 +1,61 @@
+<!--
+  Generated template for the VehicleSearchPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+	<ion-navbar color="primary">
+		<ion-title>Filter Available Vehicle</ion-title>
+
+		<ion-buttons end>
+			<button ion-button icon-only (click)="closeModal()">
+				<ion-icon name="close"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	<form [formGroup]="searchForm">
+		<ion-list no-lines>
+			<ion-item>
+				<ion-label stacked>Vehicle Category</ion-label>
+				<ion-select formControlName="category" multiple="true">
+					<ion-option *ngFor="let cat of vehCategory">{{cat}}</ion-option>
+				</ion-select>
+			</ion-item>
+
+			<ion-item>
+				<ion-label stacked>Booking Departure Date</ion-label>
+				<ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MMMM YYYY" formControlName="dateFrom"></ion-datetime>
+			</ion-item>
+
+			<ion-item>
+				<ion-label stacked>Booking Return Date</ion-label>
+				<ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MMMM YYYY" formControlName="dateTo"></ion-datetime>
+			</ion-item>
+
+			<ion-list-header no-margin>
+				Vehicle Price
+				<ion-badge item-end color="success">RM {{searchForm.get('price').value}}</ion-badge>
+			</ion-list-header>
+			<ion-item>
+				<ion-range min="0" max="1000" formControlName="price" color="lightblue">
+					<ion-label range-left>0</ion-label>
+					<ion-label range-right>1000</ion-label>
+				</ion-range>
+			</ion-item>
+		</ion-list>
+
+	</form>
+</ion-content>
+
+<ion-footer>
+	<button ion-button full color="secondary" (click)="searchVehicle()" no-margin>
+		Search
+	</button>
+</ion-footer>

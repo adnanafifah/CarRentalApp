@@ -1,0 +1,12 @@
+page-register {
+    .register-container {
+        background: /* top, transparent red, faked with gradient */
+        linear-gradient(45deg, rgba(146, 3, 148, 0.5) 0%, rgba(13, 187, 199, 0.5) 100%), /* bottom, image */
+        url(/assets/imgs/login-bg.jpg);
+        background-size: cover;
+        background-position: center center;
+    }
+    .card {
+        background: rgba(255, 255, 255, 0.75) !important;
+    }
+}

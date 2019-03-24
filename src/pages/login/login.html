@@ -1,0 +1,41 @@
+<ion-content padding class="login-container">
+	<ion-grid style="height: 100%">
+		<ion-row justify-content-center align-items-center style="height: 100%">
+			<ion-col>
+				<ion-card>
+					<ion-card-header>
+						<div text-center>
+							<img src="assets/imgs/uitm-logo.png" style="width: 40%; display: inline;">
+						</div>
+					</ion-card-header>
+					<ion-card-content>
+						<form [formGroup]="loginForm" (submit)="signIn()">
+							<ion-item margin-vertical>
+								<ion-label>
+									<ion-icon name="person"></ion-icon>
+								</ion-label>
+								<ion-input type="text" formControlName="email" placeholder="Email"></ion-input>
+							</ion-item>
+
+							<ion-item margin-vertical>
+								<ion-label>
+									<ion-icon name="lock"></ion-icon>
+								</ion-label>
+								<ion-input type="password" formControlName="password" placeholder="Password"></ion-input>
+							</ion-item>
+
+							<button ion-button block margin-vertical>Login</button>
+
+							<div text-center>
+								Don't have an account?
+								<a (click)="goToRegister()">Sign Up!</a>
+							</div>
+						</form>
+					</ion-card-content>
+				</ion-card>
+
+			</ion-col>
+
+		</ion-row>
+	</ion-grid>
+</ion-content>

@@ -1,0 +1,22 @@
+<ion-header>
+
+	<ion-navbar>
+		<ion-title>payments</ion-title>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding-vertical>
+	<ion-list>
+		<ion-item *ngFor="let payment of payments$ | async" (click)="navigateToPaymentDetail(payment)">
+			{{payment.paymentno}}
+			<!-- <p>{{payment.destination}}</p>
+			<p>{{payment.depart_date.toDate() | date: 'dd/MM/yyyy'}}</p> -->
+			<p>Booking No Reference : {{payment.bookingno}}</p>
+			<button item-end ion-button [color]="getPaymentColor(payment.payment_status)">
+				{{payment.payment_status}}
+			</button>
+		</ion-item>
+	</ion-list>
+</ion-content>
